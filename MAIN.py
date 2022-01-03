@@ -4,21 +4,21 @@ from tkinter import ttk
 
 root = Tk()
 root.title("V Drinks")
-root.geometry("800x600
+root.geometry("800x600")
 #show me once your file explorerd
 #HEADING
 label_heading = Label(root, text="Juice Center", bg="orange", font=("Sylfaen",18,"bold","italic"))
 label_heading.place(relx=0.05,rely=0.1, anchor= W)
 #LOGO IMAGE
 juice = ImageTk.PhotoImage(Image.open ("logo.png"))
-juice_image=Label(root, image=juice, bg="orange")
+juice_image=Label(root, image=juice, bg="orange2")
 juice_image.place(relx=0.2, rely=0.4,anchor=CENTER)
 #LOAD IMAGES
 apple = ImageTk.PhotoImage(Image.open("apple.png"))
 mango = ImageTk.PhotoImage(Image.open("mango.png"))
 orange = ImageTk.PhotoImage(Image.open("orange.png"))
 #Fruit Images
-fruit_image =Label(root, bg="orange")
+fruit_image =Label(root, bg="orange2")
 fruit_image.place(relx=0.75, rely=0.8,anchor= CENTER)
 #Label Select Fruit
 label_name = Label(root, text="Select fruit" , bg="orange", font=("Bahnschrift Light" , 15))
@@ -29,19 +29,19 @@ fruit_dropdown = ttk.Combobox(root,state = "readonly", value= fruit_list,
 justify="right")
 fruit_dropdown.place(relx=0.95, rely=0.25, anchor= E)
 #Label Enter Quantity
-label_quantity = Label(root, text="Enter Quantity", bg="orange")
+label_quantity = Label(root, text="Enter Quantity", bg="orange2")
 label_quantity.place(relx=0.96, rely=0.4, anchor= E)
 #Entry Element
 input_quantity = Entry(root)
 input_quantity.place(relx=0.96, rely=0.35, anchor= E)
 #Total Cost Label
-label_show_amount = Label(root, bg="orange")
+label_show_amount = Label(root, bg="orange2")
 label_show_amount.place(relx=0.95, rely=0.7, anchor= E)
 #Qunatity Label
-label_show_quantity = Label(root, bg="orange")
+label_show_quantity = Label(root, bg="orange2")
 label_show_quantity.place(relx=0.95, rely=0.8, anchor= E)
 
-class juice:
+class Juice:
     def __init__(self, fruit_name, quantity):
        self.fruit = fruit_name
        self.quantity = int(quantity)
@@ -68,7 +68,7 @@ class juice:
 def orderJuice():
    fruit = fruit_dropdown.get()
    quantity = input_quantity.get()
-   obj1 = juice(fruit,quantity)
+   obj1 = Juice(fruit,quantity)
    obj1.getCost()
     
 btn = Button(root, text="TOTAL", command=orderJuice)
